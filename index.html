@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>My love</title>
+    <link rel="stylesheet" href="./index.css" />
+</head>
+
+<body>
+    <ul class="background">
+        <!--배경 이미지-->
+    </ul>
+    <div class="top"></div>
+    <div class="center-above"></div>
+    <div class="center">
+        <div class="centerclock js-clock">
+            <h1 class="time"></h1>
+        </div>
+        <form class="js-question question">
+            <span class="question-title">Hello, what's your name?</span>
+            <input type="text" placeholder="What is your name?" />
+        </form>
+        <h4 class="js-greeting greeting">
+            Good 
+            <span class="period"></span>
+            , 
+            <span class="name"></span>
+            . 
+        </h4>
+    </div>
+    <div class="center-below">
+        <form class="js-toDoForm toDoForm">
+            <input type="text" placeholder="Write a to do " />
+        </form>
+        <ul class="js-toDoList toDoList">
+        </ul>
+        <span class="js-weather"></span>
+    </div>
+    <div class="bottom">
+    </div>
+
+    <!--JS는 항상 body 마지막에!-->
+    <script src="./clock.js"></script>
+    <script src="./greeting.js"></script>
+    <script src="./todo.js"></script>
+    <script src="./bg.js"></script>
+    <script src="./weather.js"></script>
+</body>
+
+</html>

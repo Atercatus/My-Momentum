@@ -1,0 +1,182 @@
+html, body, ul{
+    border:0;
+    margin: 0;
+    padding: 0;
+}
+body {
+    height: 100%;
+    min-height: 100%;
+    background: #333;
+    background-image: initial;
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: rgb(51, 51, 51);
+    color: #fff;
+    overflow: hidden;
+    text-shadow: 0 0 30px rgba(0,0,0,0.3);
+}
+body, input, textarea, select, button { 
+    font-family: -apple-system, BlinkMacSystemFont, "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+}
+
+@keyframes fadeIn{
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes fadeOut{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity:0;
+    }
+}
+@keyframes flickerAnimation {
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+  }
+
+/* Regions */
+.center, .top-left, .top-right, .bottom, .bottom-right, .bottom-left, .center-below, .center-above { 
+    position: absolute; 
+    z-index: 2; 
+}
+.center, .center-below, .center-above { 
+    display: block; 
+    top: 50%; 
+    left: 50%; 
+    width: 100%; 
+    text-align: center; 
+}
+.center {  
+    /*원래의 위치로 부터 이동*/
+    -webkit-transform: translate(-50%,-50%); 
+    transform: translate(-50%,-50%); 
+    /*transform-origin은 CSS transform 속성과 함께 사용되는 속성으로서, 회전 중심(원점·기준점)을 지정합니다
+    50%, 50% => 원점*/
+    -webkit-transform-origin: 50% 50%; 
+    transform-origin: 50% 50%; 
+}
+.center-below, .center-above { 
+    left: 0; 
+    text-align: center; 
+}
+.center-above { 
+    top: 0; 
+    z-index: 1; 
+}
+.center-below { 
+    top: 70%;
+    z-index: 10; 
+}
+    
+/* Center Clock */
+.centerclock { 
+    display: inline-block; 
+    position: relative; 
+}
+.centerclock h1 { 
+    cursor: default; 
+    -webkit-user-select: none; 
+    -moz-user-select: none; 
+    animation: fadeIn 1.0s linear;
+}
+.centerclock h1, .greeting h2, .introduction, .focus { 
+    text-align: center; 
+    line-height: 1; 
+    padding: 0; 
+    margin: 0; 
+    color: #fff; 
+    letter-spacing: -5px; 
+    font-size: 190px; 
+    font-weight: initial; 
+}
+.center .time { 
+    margin-top: -60px; 
+    font-size: 11em; 
+    font-weight: 500; 
+}
+
+/* Question Form*/
+.question{
+    display: inline-block;
+}
+.question .question-title{
+    display: block;
+    font-size: 54px; 
+    letter-spacing: 0; 
+    white-space: nowrap; 
+    margin-bottom: 50px;
+}
+
+/* Greeting */
+.greeting h2, .introduction, .focus { 
+    font-size: 54px; 
+    letter-spacing: 0; 
+    white-space: nowrap; 
+}
+.greeting { 
+    margin-top: -2px; 
+    opacity: 0; 
+}
+.greeting .name { 
+   display: inline-block; 
+    max-width: 15em; 
+    margin: -5px 0; 
+    padding: 5px 0; 
+    border-top-left-radius: 1px; 
+    border-top-right-radius: 1px; 
+    cursor: default; 
+    outline: none; 
+    overflow: hidden; 
+    -webkit-user-select: none; 
+    user-select: none; 
+    vertical-align: top; 
+}
+.greeting .editing { 
+    min-width: 1.5em; 
+    margin-bottom: -8px; 
+    border-bottom: 3px solid #fff; 
+    cursor: auto; 
+}
+.center .greeting { 
+    font-size: 3em; 
+    font-weight: 500; 
+    letter-spacing: -0.2px; 
+}
+.form, .greeting, .toDoForm, .toDoList
+{
+    display:none;
+}
+.showing{
+    display: block;
+}
+
+/* Background */
+.background li {
+    background-color: transparent;
+    background-size: cover;
+    background-position: center center;
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    animation: fadeIn 1.0s linear;
+}
+
+.background, .background li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
