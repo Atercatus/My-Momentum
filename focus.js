@@ -1,6 +1,6 @@
-const toDoForm = document.querySelector(".js-toDoForm");
-const toDoInput = toDoForm.querySelector("input");
-const toDoList = document.querySelector(".js-toDoList");
+const focusForm = document.querySelector(".js-focusForm");
+const focusInput = focusForm.querySelector("input");
+const focusList = document.querySelector(".js-toDoList");
 
 const TODOS_LS = 'toDos';
 let toDos = [];
@@ -12,7 +12,7 @@ function saveToDos(){
 function deleteToDo(event){
     const btn = event.target;
     const li = btn.parentNode;
-    toDoList.removeChild(li);
+    focusList.removeChild(li);
 
     for(let i = 0; i < toDos.length; i++){
         if(toDos[i].id === parseInt(li.id)){
@@ -39,7 +39,7 @@ function paintToDo(text){
     li.appendChild(span);
     li.appendChild(delBtn);
     li.id = newId;
-    toDoList.appendChild(li);
+    focusList.appendChild(li);
     const toDoObj = {
         text: text,
         id: newId,
@@ -68,7 +68,7 @@ function loadToDos(){
 
 function init() {
     loadToDos();
-    toDoForm.addEventListener("submit", handleSubmit);
+    focusForm.addEventListener("submit", handleSubmit);
 }
 
 init();

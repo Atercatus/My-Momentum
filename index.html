@@ -11,7 +11,12 @@
     <ul class="background">
         <!--배경 이미지-->
     </ul>
-    <div class="top"></div>
+    <div class="top">
+        <div class="top-left"></div>
+        <div class="top-right">
+            <span class="js-weather"></span>
+        </div>
+    </div>
     <div class="center-above"></div>
     <div class="center">
         <div class="centerclock js-clock">
@@ -19,31 +24,36 @@
         </div>
         <form class="js-question question">
             <span class="question-title">Hello, what's your name?</span>
-            <input type="text" placeholder="What is your name?" />
+            <input class="answer" type="text" />
         </form>
-        <h4 class="js-greeting greeting">
-            Good 
-            <span class="period"></span>
-            , 
-            <span class="name"></span>
-            . 
-        </h4>
+        <div class="js-greeting greeting">
+            Good
+            <span class="format"></span>,
+            <span class="name"></span>.
+        </div>
+
     </div>
     <div class="center-below">
-        <form class="js-toDoForm toDoForm">
-            <input type="text" placeholder="Write a to do " />
+        <form class="js-focusForm focusForm">
+            <div class="prompt">
+                <span class="focusForm-title">What is your main focus for today?</span>
+                <input type="text" />
+                <!--
+                    <h3 class="focus-title">Today</h3>
+                    <div class="focus-row"></div>
+                -->
+            </div>
         </form>
         <ul class="js-toDoList toDoList">
         </ul>
-        <span class="js-weather"></span>
     </div>
     <div class="bottom">
     </div>
 
     <!--JS는 항상 body 마지막에!-->
     <script src="./clock.js"></script>
+    <script src="./focus.js"></script>
     <script src="./greeting.js"></script>
-    <script src="./todo.js"></script>
     <script src="./bg.js"></script>
     <script src="./weather.js"></script>
 </body>

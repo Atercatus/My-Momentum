@@ -1,3 +1,24 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
 html, body, ul{
     border:0;
     margin: 0;
@@ -17,10 +38,23 @@ body {
     background-color: rgb(51, 51, 51);
     color: #fff;
     overflow: hidden;
-    text-shadow: 0 0 30px rgba(0,0,0,0.3);
+    text-shadow: 0 0 30px rgba(0,0,0,0.1);
+    animation: fadeIn 1.2s ease-in;
 }
 body, input, textarea, select, button { 
     font-family: -apple-system, BlinkMacSystemFont, "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+}
+.question , .focusForm, .focusList, .greeting, .centerclock h1
+{
+    display: none;
+}
+.showing{
+    display: block!important;
+    animation: fadeIn 1.7s ease-in;
+}
+.unshowing{
+    display: none!important;
+    animation: fadeOut 1.7s ease-in;
 }
 
 @keyframes fadeIn{
@@ -50,6 +84,21 @@ body, input, textarea, select, button {
     position: absolute; 
     z-index: 2; 
 }
+
+/* Top */
+.top {
+    display: flex;
+}
+.top-right{
+    position: relative;
+    flex: auto;
+    flex-direction: row-reverse;
+    flex-wrap: wrap; /*항목이 클 경우 여러 행에 걸쳐 배열됨*/
+    justify-content: flex-start; /*flex항목 행 내의 항목들은 flex 컨테이너의 시작점에서 부터 정렬된다.*/    
+    text-align: right;
+}
+
+/* Center */
 .center, .center-below, .center-above { 
     display: block; 
     top: 50%; 
@@ -83,14 +132,14 @@ body, input, textarea, select, button {
 .centerclock { 
     display: inline-block; 
     position: relative; 
+    animation: fadeIn 1.2s ease-in;
 }
 .centerclock h1 { 
     cursor: default; 
     -webkit-user-select: none; 
     -moz-user-select: none; 
-    animation: fadeIn 1.0s linear;
 }
-.centerclock h1, .greeting h2, .introduction, .focus { 
+.centerclock h1, .greeting , .introduction, .focus { 
     text-align: center; 
     line-height: 1; 
     padding: 0; 
@@ -108,25 +157,45 @@ body, input, textarea, select, button {
 
 /* Question Form*/
 .question{
-    display: inline-block;
+    padding-top: 15px;
+    padding-bottom: 35px;
 }
-.question .question-title{
+.question .question-title {
     display: block;
-    font-size: 54px; 
+    font-size: 50px; 
     letter-spacing: 0; 
     white-space: nowrap; 
     margin-bottom: 50px;
 }
+.center .answer{
+    display: block;
+    font-size: 50px;
+    width: 40%;
+    max-width: 90%;
+    margin: 0 auto;
+    padding-top: 15px;
+    border: none;
+    background:transparent;
+    border-bottom: 3px solid #fff;
+    line-height: normal;
+    overflow: hidden;
+    text-align: center;
+    color:#fff!important;
+}
+.question .answer:focus{
+    outline:none;
+}
 
 /* Greeting */
-.greeting h2, .introduction, .focus { 
+.center .greeting { 
+    margin-top: -2px; 
+    font-size: 3em; 
+    letter-spacing: -0.2px; 
+}
+.greeting, .introduction, .focus { 
     font-size: 54px; 
     letter-spacing: 0; 
     white-space: nowrap; 
-}
-.greeting { 
-    margin-top: -2px; 
-    opacity: 0; 
 }
 .greeting .name { 
    display: inline-block; 
@@ -148,17 +217,41 @@ body, input, textarea, select, button {
     border-bottom: 3px solid #fff; 
     cursor: auto; 
 }
-.center .greeting { 
-    font-size: 3em; 
-    font-weight: 500; 
-    letter-spacing: -0.2px; 
+
+
+
+
+/* FOCUSFORM */
+.focusForm{
+    display:flex;
+    justify-content: center;
+    min-height: 100px;
 }
-.form, .greeting, .toDoForm, .toDoList
-{
-    display:none;
+.focusForm-title{
+    font-size: 2.7em; 
 }
-.showing{
+.center-below .prompt{
+    display: inline-block;
+
+}
+.center-below input{
     display: block;
+    font-size: 35px;
+    min-width: 100px;
+    width: 100%;
+    max-width: 90%;
+    margin: 0 auto;
+    padding-top: 15px;
+    border: none;
+    background:transparent;
+    border-bottom: 2px solid #fff;
+    line-height: normal;
+    overflow: hidden;
+    text-align: center;
+    color:#fff!important;
+}
+.center-below input:focus{
+    outline:none;
 }
 
 /* Background */
@@ -169,9 +262,8 @@ body, input, textarea, select, button {
     background-position-x: center;
     background-position-y: center;
     background-repeat: no-repeat;
-    animation: fadeIn 1.0s linear;
+    animation: fadeIn 1.2s ease-in;
 }
-
 .background, .background li {
     position: absolute;
     top: 0;
